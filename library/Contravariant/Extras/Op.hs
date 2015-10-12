@@ -1,13 +1,11 @@
 -- |
--- This module exports functions optimized for the `Op` type.
-module Contravariant.Extras.Op where
+-- This module exports functions specialized for the `Op` type.
+module Contravariant.Extras.Op
+(
+  -- |
+  -- A berserk collection of @tuple@ functions with arities of up to 42.
+  module Contravariant.Extras.Op.Tuple,
+)
+where
 
-import BasePrelude
-import Data.Functor.Contravariant
-import Data.Functor.Contravariant.Divisible
-import qualified Contravariant.Extras.TH as TH
-
-
--- Generate the `tuple` functions:
-return (join (map (TH.opTupleDecs "tuple") (reverse [2..42])))
-
+import Contravariant.Extras.Op.Tuple

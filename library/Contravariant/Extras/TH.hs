@@ -90,7 +90,7 @@ opTupleDecs baseName arity =
                             name =
                               mkName (showString "op" (show index))
                 body =
-                  NormalB (AppE (ConE (mkName "Op")) lambda)
+                  NormalB (AppE (ConE 'Op) lambda)
                   where
                     lambda =
                       LamE pats exp
