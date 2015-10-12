@@ -44,7 +44,7 @@ library
   exposed-modules:
     Contravariant.Extras
     Contravariant.Extras.Op
-    Contravariant.Extras.Op.Tuple
+    Contravariant.Extras.Op.Zip
   build-depends:
     tuple-th >= 0.2.5 && < 0.3,
     template-haskell >= 2.8 && < 3,
