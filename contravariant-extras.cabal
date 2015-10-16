@@ -43,6 +43,7 @@ library
     Contravariant.Extras.TH
   exposed-modules:
     Contravariant.Extras
+    Contravariant.Extras.Extracting
     Contravariant.Extras.Op
     Contravariant.Extras.Op.Zip
   build-depends:
