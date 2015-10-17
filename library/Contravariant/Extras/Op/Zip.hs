@@ -1,5 +1,5 @@
 -- |
--- A berserk collection of @zip@ functions with arities of up to 42.
+-- A berserk collection of @contrazip@ functions with arities of up to 42.
 -- 
 -- Why 42?
 -- Naturally because it's the answer to the ultimate question of life,
@@ -16,6 +16,6 @@ import BasePrelude
 import qualified Contravariant.Extras.TH as TH
 
 
--- Generate the @zip@ functions:
-return (join (map (TH.opTupleDecs "tuple") (reverse [2..42])))
+-- Generate the @contrazip@ functions:
+return (join (map (TH.opTupleDecs "contrazip") (reverse [2..42])))
 
