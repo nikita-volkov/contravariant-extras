@@ -5,6 +5,7 @@ import BasePrelude
 import Data.Functor.Contravariant
 import Data.Functor.Contravariant.Divisible
 import Language.Haskell.TH hiding (classP)
+import qualified TupleTH
 
 
 -- |
@@ -116,6 +117,100 @@ opContrazipDecs baseName arity =
                                       mkName (showString "op" (show index))
                                     varName =
                                       mkName (showString "v" (show index))
+
+-- |
+-- Generates declarations in the spirit of the following:
+-- 
+-- @
+-- contrazip4 :: Divisible f => f a1 -> f a2 -> f a3 -> f a4 -> f ( a1 , a2 , a3 , a4 )
+-- contrazip4 f1 f2 f3 f4 =
+--   divide $(TupleTH.splitTupleAt 4 1) f1 $
+--   divide $(TupleTH.splitTupleAt 3 1) f2 $
+--   divide $(TupleTH.splitTupleAt 2 1) f3 $
+--   f4
+-- @
+divisibleContrazipDecs :: String -> Int -> [Dec]
+divisibleContrazipDecs baseName arity =
+  [signature, value]
+  where
+    name =
+      mkName (showString baseName (show arity))
+    signature =
+      SigD name type_
+      where
+        type_ =
+          ForallT vars cxt type_
+          where
+            fName =
+              mkName "f"
+            aNames =
+              map aName (enumFromTo 1 arity)
+              where
+                aName index =
+                  mkName (showString "a" (show index))
+            vars =
+              map PlainTV (fName : aNames)
+            cxt =
+              [pred]
+              where
+                pred =
+                  classP ''Divisible [VarT fName]
+            type_ =
+              foldr appArrowT result params
+              where
+                appArrowT a b =
+                  AppT (AppT ArrowT a) b
+                result =
+                  AppT (VarT fName) tuple
+                  where
+                    tuple =
+                      foldl AppT (TupleT arity) (map VarT aNames)
+                params =
+                  map param aNames
+                  where
+                    param aName =
+                      AppT (VarT fName) (VarT aName)
+    value =
+      FunD name clauses
+      where
+        clauses =
+          [clause]
+          where
+            clause =
+              Clause pats body []
+              where
+                pats =
+                  map pat (enumFromTo 1 arity)
+                  where
+                    pat index =
+                      VarP name
+                      where
+                        name =
+                          mkName (showString "f" (show index))
+                body =
+                  NormalB (exp arity)
+                  where
+                    exp index =
+                      case index of
+                        1 ->
+                          VarE (mkName (showString "f" (show arity)))
+                        _ ->
+                          foldl1 AppE
+                          [
+                            VarE 'divide
+                            ,
+                            splitTupleAtE index 1
+                            ,
+                            VarE (mkName (showString "f" (show (arity - index + 1))))
+                            ,
+                            exp (pred index)
+                          ]
+
+splitTupleAtE :: Int -> Int -> Exp
+splitTupleAtE arity position =
+  unsafePerformIO $
+  runQ $
+  TupleTH.splitTupleAt arity position
 
 classP :: Name -> [Type] -> Pred
 #if MIN_VERSION_template_haskell(2,10,0)

@@ -3,7 +3,7 @@
 -- which are specialized to the 'Op' type.
 -- 
 -- Why 42?
--- Naturally, because it's the answer to the ultimate question of life,
+-- Well, naturally, because it's the answer to the ultimate question of life,
 -- the universe and everything.
 -- 
 -- It's exported as a separate module from "Contravariant.Extras.Op"
