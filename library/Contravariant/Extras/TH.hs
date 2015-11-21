@@ -16,8 +16,8 @@ import qualified TupleTH
 -- tuple3 ( Op op1 ) ( Op op2 ) ( Op op3 ) =
 --   Op $ \( v1 , v2 , v3 ) -> mconcat [ op1 v1 , op2 v2 , op3 v3 ]
 -- @
-opContramapDecs :: String -> Int -> [ Dec ]
-opContramapDecs baseName arity =
+opContrazipDecs :: String -> Int -> [ Dec ]
+opContrazipDecs baseName arity =
   [ signature , value ]
   where
     name =
@@ -122,15 +122,15 @@ opContramapDecs baseName arity =
 -- Generates declarations in the spirit of the following:
 -- 
 -- @
--- contramap4 :: Divisible f => f a1 -> f a2 -> f a3 -> f a4 -> f ( a1 , a2 , a3 , a4 )
--- contramap4 f1 f2 f3 f4 =
+-- contrazip4 :: Divisible f => f a1 -> f a2 -> f a3 -> f a4 -> f ( a1 , a2 , a3 , a4 )
+-- contrazip4 f1 f2 f3 f4 =
 --   divide $(TupleTH.splitTupleAt 4 1) f1 $
 --   divide $(TupleTH.splitTupleAt 3 1) f2 $
 --   divide $(TupleTH.splitTupleAt 2 1) f3 $
 --   f4
 -- @
-divisibleContramapDecs :: String -> Int -> [Dec]
-divisibleContramapDecs baseName arity =
+divisibleContrazipDecs :: String -> Int -> [Dec]
+divisibleContrazipDecs baseName arity =
   [signature, value]
   where
     name =
