@@ -44,7 +44,6 @@ library
   exposed-modules:
     Contravariant.Extras
     Contravariant.Extras.Contramap
-    Contravariant.Extras.Extracting
     Contravariant.Extras.Op
     Contravariant.Extras.Op.Contramap
   build-depends:
