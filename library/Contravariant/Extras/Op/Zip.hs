@@ -17,5 +17,5 @@ import qualified Contravariant.Extras.TH as TH
 
 
 -- Generate the @contrazip@ functions:
-return (join (map (TH.opTupleDecs "contrazip") (reverse [2..42])))
+return (join (map (TH.opContrazipDecs "contrazip") (reverse [2..42])))
 

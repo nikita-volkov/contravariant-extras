@@ -15,8 +15,8 @@ import Language.Haskell.TH hiding (classP)
 -- tuple3 ( Op op1 ) ( Op op2 ) ( Op op3 ) =
 --   Op $ \( v1 , v2 , v3 ) -> mconcat [ op1 v1 , op2 v2 , op3 v3 ]
 -- @
-opTupleDecs :: String -> Int -> [ Dec ]
-opTupleDecs baseName arity =
+opContrazipDecs :: String -> Int -> [ Dec ]
+opContrazipDecs baseName arity =
   [ signature , value ]
   where
     name =
