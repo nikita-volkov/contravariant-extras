@@ -43,10 +43,10 @@ library
     Contravariant.Extras.TH
   exposed-modules:
     Contravariant.Extras
-    Contravariant.Extras.Contrazip
+    Contravariant.Extras.Contramap
     Contravariant.Extras.Extracting
     Contravariant.Extras.Op
-    Contravariant.Extras.Op.Contrazip
+    Contravariant.Extras.Op.Contramap
   build-depends:
     tuple-th >= 0.2.5 && < 0.3,
     template-haskell >= 2.8 && < 3,

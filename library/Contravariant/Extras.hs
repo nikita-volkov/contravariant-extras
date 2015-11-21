@@ -1,9 +1,9 @@
 module Contravariant.Extras
 (
   -- |
-  -- A berserk collection of @contrazip@ functions with arities of up to 42.
-  module Contravariant.Extras.Contrazip,
+  -- A berserk collection of @contramap@ functions with arities of up to 42.
+  module Contravariant.Extras.Contramap,
 )
 where
 
-import Contravariant.Extras.Contrazip
+import Contravariant.Extras.Contramap

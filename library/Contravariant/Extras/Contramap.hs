@@ -1,5 +1,5 @@
 -- |
--- A berserk collection of @contrazip@ functions with arities of up to 42.
+-- A berserk collection of @contramap@ functions with arities of up to 42.
 -- 
 -- Why 42?
 -- Well, naturally, because it's the answer to the ultimate question of life,
@@ -10,12 +10,12 @@
 -- The "Contravariant.Extras" module still reexports this module,
 -- so you can simply import that only.
 -- 
-module Contravariant.Extras.Contrazip where
+module Contravariant.Extras.Contramap where
 
 import BasePrelude
 import qualified Contravariant.Extras.TH as TH
 
 
--- Generate the @contrazip@ functions:
-return (join (map (TH.divisibleContrazipDecs "contrazip") (reverse [2..42])))
+-- Generate the @contramap@ functions:
+return (join (map (TH.divisibleContramapDecs "contramap") (reverse [2..42])))
 
