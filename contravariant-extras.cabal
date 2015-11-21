@@ -45,7 +45,7 @@ library
     Contravariant.Extras
     Contravariant.Extras.Extracting
     Contravariant.Extras.Op
-    Contravariant.Extras.Op.Zip
+    Contravariant.Extras.Op.Contrazip
   build-depends:
     tuple-th >= 0.2.5 && < 0.3,
     template-haskell >= 2.8 && < 3,

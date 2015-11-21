@@ -3,9 +3,9 @@
 module Contravariant.Extras.Op
 (
   -- |
-  -- A berserk collection of @zip@ functions with arities of up to 42.
-  module Contravariant.Extras.Op.Zip,
+  -- A berserk collection of @contrazip@ functions with arities of up to 42.
+  module Contravariant.Extras.Op.Contrazip,
 )
 where
 
-import Contravariant.Extras.Op.Zip
+import Contravariant.Extras.Op.Contrazip
