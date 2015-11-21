@@ -1,9 +1,11 @@
 name:
   contravariant-extras
 version:
-  0.1
+  0.2
 category:
   Control
+synopsis:
+  Extras for the "contravariant" package
 homepage:
   https://github.com/nikita-volkov/contravariant-extras 
 bug-reports:
