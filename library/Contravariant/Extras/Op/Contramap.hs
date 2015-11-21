@@ -1,7 +1,7 @@
 -- |
 -- A berserk collection of @contramap@ functions with arities of up to 42,
 -- which are specialized to the 'Op' type,
--- and jump thru less hoops than their 'Divisible'-based siblings.
+-- and jump thru fewer hoops than their 'Divisible'-based siblings.
 -- 
 -- Why 42?
 -- Well, naturally, because it's the answer to the ultimate question of life,
