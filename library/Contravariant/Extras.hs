@@ -9,9 +9,10 @@ module Contravariant.Extras
 )
 where
 
-import BasePrelude
+import BasePrelude hiding ((<>))
 import Contravariant.Extras.Contrazip
 import Data.Functor.Contravariant.Divisible
+import Data.Semigroup (Semigroup ((<>)))
 
 
 -- |
@@ -45,10 +46,8 @@ contramany f =
 data Supplied divisible =
   forall input. Supplied !(divisible input) !input
 
-instance Divisible divisible => Monoid (Supplied divisible) where
-  mempty =
-    Supplied conquer ()
-  mappend (Supplied divisible1 input1) (Supplied divisible2 input2) =
+instance Divisible divisible => Semigroup (Supplied divisible) where
+  Supplied divisible1 input1 <> Supplied divisible2 input2 =
     Supplied divisible3 input3
     where
       divisible3 =
@@ -56,3 +55,8 @@ instance Divisible divisible => Monoid (Supplied divisible) where
       input3 =
         (input1, input2)
 
+instance Divisible divisible => Monoid (Supplied divisible) where
+  mempty =
+    Supplied conquer ()
+  mappend =
+    (<>)
