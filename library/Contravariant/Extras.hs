@@ -3,6 +3,7 @@ module Contravariant.Extras
   -- |
   -- A berserk collection of @contrazip@ functions with arities of up to 42.
   module Contravariant.Extras.Contrazip,
+  (>*<),
   contramany,
   Supplied(..),
 )
@@ -12,6 +13,13 @@ import BasePrelude
 import Contravariant.Extras.Contrazip
 import Data.Functor.Contravariant.Divisible
 
+
+-- |
+-- An alias to 'divided'.
+{-# INLINE (>*<) #-}
+(>*<) :: Divisible f => f a -> f b -> f (a, b)
+(>*<) =
+  divided
 
 contramany :: Decidable f => f a -> f [a]
 contramany f =
