@@ -6,6 +6,9 @@ category:
   Control
 synopsis:
   Extras for the "contravariant" package
+description:
+  Extras for the "contravariant" package.
+  These include 'divide' functions of different arities.
 homepage:
   https://github.com/nikita-volkov/contravariant-extras 
 bug-reports:
