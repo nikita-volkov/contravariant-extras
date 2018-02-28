@@ -6,6 +6,9 @@ category:
   Control
 synopsis:
   Extras for the "contravariant" package
+description:
+  Extras for the "contravariant" package.
+  These include 'divide' functions of different arities.
 homepage:
   https://github.com/nikita-volkov/contravariant-extras 
 bug-reports:
@@ -24,6 +27,8 @@ build-type:
   Simple
 cabal-version:
   >=1.10
+tested-with:
+  GHC==8.2.2, GHC==8.0.2, GHC==7.10.3, GHC==7.8.4, GHC==7.6.3
 
 
 source-repository head
