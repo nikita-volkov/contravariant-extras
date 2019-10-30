@@ -3,6 +3,7 @@ module Contravariant.Extras
   -- |
   -- A berserk collection of @contrazip@ functions with arities of up to 42.
   module Contravariant.Extras.Contrazip,
+  module Contravariant.Extras.Eliminate,
   (>*<),
   contramany,
   Supplied(..),
@@ -11,6 +12,7 @@ where
 
 import BasePrelude hiding ((<>))
 import Contravariant.Extras.Contrazip
+import Contravariant.Extras.Eliminate
 import Data.Functor.Contravariant.Divisible
 import Data.Semigroup (Semigroup ((<>)))
 
