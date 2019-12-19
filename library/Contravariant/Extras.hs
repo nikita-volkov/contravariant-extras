@@ -50,7 +50,7 @@ contramany f =
 -- A combination of a divisible functor with some input for it.
 -- Allows to use the 'Monoid' API for composition.
 data Supplied divisible =
-  forall input. Supplied !(divisible input) !input
+  forall input. Supplied (divisible input) input
 
 instance Divisible divisible => Semigroup (Supplied divisible) where
   Supplied divisible1 input1 <> Supplied divisible2 input2 =
