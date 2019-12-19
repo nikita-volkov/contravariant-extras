@@ -1,6 +1,6 @@
 module Contravariant.Extras.ContrazipLifting where
 
-import BasePrelude
+import Contravariant.Extras.Prelude
 import Contravariant.Extras.Contrazip
 import Data.Functor.Contravariant.Divisible
 import qualified Contravariant.Extras.TH as TH

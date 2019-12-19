@@ -14,7 +14,7 @@ module Contravariant.Extras
 )
 where
 
-import BasePrelude hiding ((<>))
+import Contravariant.Extras.Prelude hiding ((<>))
 import Contravariant.Extras.Contrazip
 import Contravariant.Extras.ContrazipLifting
 import Data.Functor.Contravariant.Divisible

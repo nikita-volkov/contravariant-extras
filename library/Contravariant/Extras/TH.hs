@@ -1,7 +1,7 @@
 {-# LANGUAGE CPP #-}
 module Contravariant.Extras.TH where
 
-import BasePrelude
+import Contravariant.Extras.Prelude
 import Data.Functor.Contravariant
 import Data.Functor.Contravariant.Divisible
 import Language.Haskell.TH hiding (classP)

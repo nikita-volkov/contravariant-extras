@@ -12,7 +12,7 @@
 -- 
 module Contravariant.Extras.Contrazip where
 
-import BasePrelude
+import Contravariant.Extras.Prelude
 import qualified Contravariant.Extras.TH as TH
 
 
