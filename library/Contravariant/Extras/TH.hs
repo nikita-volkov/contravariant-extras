@@ -4,8 +4,8 @@ module Contravariant.Extras.TH where
 import Contravariant.Extras.Prelude
 import Data.Functor.Contravariant
 import Data.Functor.Contravariant.Divisible
-import Language.Haskell.TH hiding (classP)
-import qualified TupleTH
+import Language.Haskell.TH.Syntax hiding (classP)
+import qualified TemplateHaskell.Compat.V0208 as Compat
 
 
 -- |
@@ -208,9 +208,14 @@ divisibleContrazipDecs baseName arity =
 
 splitTupleAtE :: Int -> Int -> Exp
 splitTupleAtE arity position =
-  unsafePerformIO $
-  runQ $
-  TupleTH.splitTupleAt arity position
+  let
+    nameByIndex index = Name (OccName ('_' : show index)) NameS
+    names = enumFromTo 0 (pred arity) & map nameByIndex
+    pats = names & map VarP
+    pat = TupP pats
+    exps = names & map VarE
+    body = splitAt position exps & \ (a, b) -> Compat.tupE [Compat.tupE a, Compat.tupE b]
+    in LamE [pat] body
 
 classP :: Name -> [Type] -> Pred
 #if MIN_VERSION_template_haskell(2,10,0)
