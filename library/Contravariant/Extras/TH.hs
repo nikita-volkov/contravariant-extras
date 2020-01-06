@@ -1,4 +1,3 @@
-{-# LANGUAGE CPP #-}
 module Contravariant.Extras.TH where
 
 import Contravariant.Extras.Prelude
@@ -40,7 +39,7 @@ opContrazipDecs baseName arity =
               [ pred ]
               where
                 pred =
-                  classP ''Monoid [ a ]
+                  Compat.classP ''Monoid [ a ]
                   where
                     a =
                       VarT (mkName "a") 
@@ -154,7 +153,7 @@ divisibleContrazipDecs baseName arity =
               [pred]
               where
                 pred =
-                  classP ''Divisible [VarT fName]
+                  Compat.classP ''Divisible [VarT fName]
             type_ =
               foldr appArrowT result params
               where
@@ -216,10 +215,3 @@ splitTupleAtE arity position =
     exps = names & map VarE
     body = splitAt position exps & \ (a, b) -> Compat.tupE [Compat.tupE a, Compat.tupE b]
     in LamE [pat] body
-
-classP :: Name -> [Type] -> Pred
-#if MIN_VERSION_template_haskell(2,10,0)
-classP n tl = foldl AppT (ConT n) tl
-#else
-classP = ClassP
-#endif
