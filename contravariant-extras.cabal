@@ -26,6 +26,7 @@ library
     Contravariant.Extras.ContrazipLifting
     Contravariant.Extras.Op
     Contravariant.Extras.Op.Contrazip
+    Contravariant.Extras.TH.Exp
   other-modules:
     Contravariant.Extras.TH
     Contravariant.Extras.Prelude
