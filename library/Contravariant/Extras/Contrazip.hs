@@ -13,9 +13,9 @@
 module Contravariant.Extras.Contrazip where
 
 import Contravariant.Extras.Prelude
-import qualified Contravariant.Extras.TH as TH
+import qualified Contravariant.Extras.TH.Ast as TH
 
 
 -- Generate the @contrazip@ functions:
-return (join (map (TH.divisibleContrazipDecs "contrazip") (reverse [2..42])))
+return (join (map (TH.contrazipDecs "contrazip") (reverse [2..42])))
 

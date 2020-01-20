@@ -26,10 +26,9 @@ library
     Contravariant.Extras.ContrazipLifting
     Contravariant.Extras.Op
     Contravariant.Extras.Op.Contrazip
-    Contravariant.Extras.TH.Exp
   other-modules:
-    Contravariant.Extras.TH
     Contravariant.Extras.Prelude
+    Contravariant.Extras.TH.Ast
   build-depends:
     base >=4.10 && <5,
     contravariant >=1.3 && <2,
