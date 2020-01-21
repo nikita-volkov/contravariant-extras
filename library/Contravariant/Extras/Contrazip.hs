@@ -13,7 +13,7 @@
 module Contravariant.Extras.Contrazip where
 
 import Contravariant.Extras.Prelude
-import qualified Contravariant.Extras.TH.Ast as TH
+import qualified Contravariant.Extras.TH as TH
 
 
 -- Generate the @contrazip@ functions:

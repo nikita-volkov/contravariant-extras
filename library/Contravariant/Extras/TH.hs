@@ -1,4 +1,4 @@
-module Contravariant.Extras.TH.Ast (
+module Contravariant.Extras.TH (
     opContrazipDecs,
     contrazipDecs,
     contrazipExp,
