@@ -8,6 +8,7 @@ import Contravariant.Extras.Prelude
 import Data.Functor.Contravariant
 import Data.Functor.Contravariant.Divisible
 import Language.Haskell.TH.Syntax hiding (classP)
+import Language.Haskell.TH.Lib
 import qualified TemplateHaskell.Compat.V0208 as Compat
 
 
@@ -33,7 +34,7 @@ opContrazipDecs baseName arity =
           ForallT vars cxt type_
           where
             vars =
-              map (PlainTV . mkName) ("a" : bs)
+              map (plainTV . mkName) ("a" : bs)
               where
                 bs =
                   map b (enumFromTo 1 arity)
@@ -148,7 +149,7 @@ contrazipType arity = ForallT vars cxt type_ where
   fName = mkName "f"
   aNames = map aName (enumFromTo 1 arity) where
     aName index = mkName (showString "a" (show index))
-  vars = map PlainTV (fName : aNames)
+  vars = map plainTV (fName : aNames)
   cxt = [pred] where
     pred = Compat.classP ''Divisible [VarT fName]
   type_ = foldr appArrowT result params where
