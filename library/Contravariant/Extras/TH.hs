@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 module Contravariant.Extras.TH (
     opContrazipDecs,
     contrazipDecs,
@@ -10,6 +11,13 @@ import Data.Functor.Contravariant.Divisible
 import Language.Haskell.TH.Syntax hiding (classP)
 import qualified TemplateHaskell.Compat.V0208 as Compat
 
+
+#if MIN_VERSION_template_haskell(2,18,0)
+conp :: Name -> [Pat] -> Pat
+conp name pats = ConP name [] pats
+#else
+conp = ConP
+#endif
 
 {-|
 Generates declarations in the spirit of the following:
@@ -87,7 +95,7 @@ opContrazipDecs baseName arity =
                   map pat (enumFromTo 1 arity)
                   where
                     pat index =
-                      ConP 'Op pats
+                      conp 'Op pats
                       where
                         pats =
                           [ VarP name ]
