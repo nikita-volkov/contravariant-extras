@@ -6,9 +6,7 @@ module Contravariant.Extras.TH
 where
 
 import Contravariant.Extras.Prelude
-import Data.Functor.Contravariant
-import Data.Functor.Contravariant.Divisible
-import Language.Haskell.TH.Syntax hiding (classP)
+import Language.Haskell.TH.Syntax
 import qualified TemplateHaskell.Compat.V0208 as Compat
 
 -- |

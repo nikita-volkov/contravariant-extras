@@ -14,7 +14,6 @@ where
 import Contravariant.Extras.Contrazip
 import Contravariant.Extras.ContrazipLifting
 import Contravariant.Extras.Prelude hiding ((<>))
-import Data.Functor.Contravariant.Divisible
 import Data.Semigroup (Semigroup ((<>)))
 
 -- |

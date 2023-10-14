@@ -2,8 +2,6 @@ module Contravariant.Extras.ContrazipLifting where
 
 import Contravariant.Extras.Contrazip
 import Contravariant.Extras.Prelude
-import qualified Contravariant.Extras.TH as TH
-import Data.Functor.Contravariant.Divisible
 
 contrazipLifting2 :: (Divisible f) => (forall x. g x -> f x) -> g a1 -> g a2 -> f (a1, a2)
 contrazipLifting2 fn a b = contrazip2 (fn a) (fn b)
