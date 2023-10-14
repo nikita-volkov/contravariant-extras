@@ -6,6 +6,7 @@ description:
   Utilities for contravariant functors.
   Provides large sets of functions for contravariant composition
   of various arities.
+
 homepage:      https://github.com/nikita-volkov/contravariant-extras
 bug-reports:
   https://github.com/nikita-volkov/contravariant-extras/issues
